@@ -1,0 +1,41 @@
+{
+  "name": "messengerqa-cypress-ts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio QA automation project for a web messenger using TypeScript and Cypress",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "tsx watch server/index.ts",
+    "dev:web": "vite --host 127.0.0.1",
+    "build": "tsc -p tsconfig.json --noEmit && vite build",
+    "start": "tsx server/index.ts",
+    "cy:open": "cypress open",
+    "cy:run:only": "cypress run",
+    "cy:run": "start-server-and-test dev http://127.0.0.1:5173 cy:run:only",
+    "test": "npm run cy:run",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.18",
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.15.30",
+    "@typescript-eslint/eslint-plugin": "^8.34.0",
+    "@typescript-eslint/parser": "^8.34.0",
+    "concurrently": "^9.1.2",
+    "cypress": "^14.5.0",
+    "eslint": "^9.28.0",
+    "prettier": "^3.5.3",
+    "start-server-and-test": "^2.0.12",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  }
+}

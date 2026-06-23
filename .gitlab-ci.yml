@@ -1,0 +1,23 @@
+image: cypress/browsers:node-22.14.0-chrome-133.0.6943.126-1-ff-135.0.1-edge-133.0.3065.69-1
+
+stages:
+  - test
+
+cache:
+  paths:
+    - node_modules/
+    - ~/.cache/Cypress
+
+cypress:
+  stage: test
+  script:
+    - npm ci
+    - npm run dev > app.log 2>&1 &
+    - npx wait-on http://127.0.0.1:5173
+    - npm run cy:run:only
+  artifacts:
+    when: always
+    paths:
+      - cypress/screenshots/
+      - app.log
+    expire_in: 7 days

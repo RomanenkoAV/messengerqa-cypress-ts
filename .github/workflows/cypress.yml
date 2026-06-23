@@ -1,0 +1,27 @@
+name: Cypress tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  cypress:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Cypress
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run dev
+          wait-on: http://127.0.0.1:5173
+          browser: chrome
+
+      - name: Upload screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
