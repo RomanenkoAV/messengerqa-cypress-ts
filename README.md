@@ -1,7 +1,5 @@
 # Messenger QA Cypress TypeScript
 
-Полноценный учебный проект для портфолио QA Automation Engineer.
-
 Стек
 
 - TypeScript
@@ -108,23 +106,3 @@ npm test
 ```bash
 npm run build
 ```
-
-## Документация
-
-- docs/project-description.md
-- docs/test-plan.md
-- docs/test-cases.md
-- docs/checklist.md
-- docs/bug-report.md
-- docs/automation-strategy.md
-- docs/interview-presentation.md
-
-## Идеи для развития
-
-- Docker Compose
-- Allure Report
-- visual regression
-- accessibility testing
-- OpenAPI schema validation
-- performance smoke через k6
-- parallel execution
