@@ -12,8 +12,9 @@
     "start": "tsx server/index.ts",
     "cy:open": "cypress open",
     "cy:run:only": "cypress run",
-    "cy:run": "start-server-and-test dev http://127.0.0.1:5173 cy:run:only",
+    "cy:run": "start-server-and-test dev \"http-get://127.0.0.1:3001/api/health|http-get://127.0.0.1:5173\" cy:run:only",
     "test": "npm run cy:run",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext .ts",
     "format": "prettier --write ."
   },
