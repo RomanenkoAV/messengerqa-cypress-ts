@@ -3,10 +3,11 @@ import { api } from './api';
 import type { Chat, Message, User } from '../shared/types';
 import './styles.css';
 
-const app = document.querySelector<HTMLDivElement>('#app');
-if (!app) {
+const appElement = document.querySelector<HTMLDivElement>('#app');
+if (!appElement) {
   throw new Error('App root not found');
 }
+const app = appElement;
 
 let currentUser: User | null = null;
 let chats: Chat[] = [];
